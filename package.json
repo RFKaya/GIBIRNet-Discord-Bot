@@ -1,8 +1,8 @@
 {
-  "name": "npm-init-example",
-  "version": "1.0.0",
-  "description": "Example package.json",
-  "main": "server.js",
+  "name": "GNet-Discord-Bot",
+  "version": "4.0.0",
+  "description": "Advanced Moderation Bot for GIBIRNet's Official Discord Community.",
+  "main": "client.js",
   "dependencies": {
     "chalk": "^4.1.0",
     "common-tags": "^1.8.0",
@@ -26,6 +26,6 @@
     "npm",
     "init"
   ],
-  "author": "RFKaya",
-  "license": "ISC"
+  "author": "RFKaya & frudotz",
+  "license": "MIT"
 }
