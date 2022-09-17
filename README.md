@@ -28,7 +28,7 @@
   - İlk olarak GIBIRNet abonelerinin, aboneliğini teyit etme işlemini kolaylaştırmak için abone-teyit komutu yapılmış ve böylece abonelerin yetkililere ihtiyaç duymadan abone rolüne erişmesi sağlanmıştır,
   - Abone teyit sistemi henüz geliştirilme aşamasında olup diğer güvenlik ve moderasyon sistemleri üzerinde de çalışılmaya devam ediliyor.
   
-  - V.4.1
+  > V.4.1
     - Abone teyit sistemi butonlu olacak şekilde güncellendi ve test numarasının gizli kalması için diğer sunucu üyelerinin göremeyeceği şekilde işleniyor.
 
 -----
