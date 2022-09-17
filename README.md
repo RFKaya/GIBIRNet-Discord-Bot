@@ -29,7 +29,7 @@
   - Abone teyit sistemi henüz geliştirilme aşamasında olup diğer güvenlik ve moderasyon sistemleri üzerinde de çalışılmaya devam ediliyor.
   
   > V.4.1
-    - Abone teyit sistemi butonlu olacak şekilde güncellendi ve test numarasının gizli kalması için diğer sunucu üyelerinin göremeyeceği şekilde işleniyor.
+  > - Abone teyit sistemi butonlu olacak şekilde güncellendi ve test numarasının gizli kalması için diğer sunucu üyelerinin göremeyeceği şekilde işleniyor.
 
 -----
 
