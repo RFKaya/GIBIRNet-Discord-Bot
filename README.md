@@ -1,44 +1,36 @@
 # GIBIRNet Discord Sunucusu Moderasyon Botu
 
-### V.1 - GIBIRNet Kayıt Botu - Şubat 2021
+### V.1 - GIBIRNet Kayıt Botu
 
-  ```
-  + Kayıt işlemlerini otomatize etmek üzere gelişmiş kayıt sistemi,  
-  + Yetkililerin kolaylık sağlayan GIBIRNet ve Oyun Kulübü hakkında bilgilendirme komutları.
-  ```
+  - Discord sunucusunda üye adaylarının kayıt işlemlerini otomatize etmek üzere gelişmiş kayıt sistemi,  
+  - Discord yetkililerinin işlerini kolaylaştırmak üzere GIBIRNet Oyun Kulübü ve GIBIRNet hakkında bilgilendirici mesaj komutları.
 
 -----
 
-### V.2 - GIBIRNet Kayıt Botu - Mart 2021
+### V.2 - GIBIRNet Kayıt Botu
 
-  ```
-  + Yetkililerin aktiflik yarışına girmelerini sağlayan sıralama sistemi,
-  + Üye kayıtlarının takip edilmesini sağlayan quick.db tabanlı üye bilgi veritabanı,
-  + Güvenli hesaplar için otomatik kayıt sistemi.
-  ```
+  - Yetkililerin aktifliklerini takip etmek ve aralarında yarışmalarını sağlamak üzere sıralama sistemi,
+  - Kimin ne zaman ve kim tarafından kaydedildiğini takip edebilmek üzere quick.db tabanlı üye bilgi veritabanı,
+  - Bazı algoritmalarla hesabının güvenli olduğu saptanan kişileri kayıtla uğraştırmadan otomatik kayıt eden oto-rol sistemi.
 
 -----
 
-### V.3 - GIBIRNet Discord Arşivi - Ekim 2021
+### V.3 - GIBIRNet Moderasyon Botu
 
-  ```
-  - Kayıt işlemlerini otomatize etmek üzere gelişmiş kayıt sistemi,
-  - Otomatik kayıt, sıralama, üye bilgi ve bilgilendirme sistemleri,
-  + Proje belirsiz süreyle durduruldu ve veriler arşivlendi.
-  ```
+  - Discord sunucusunda kayıt sisteminin kaldırılmasıyla birlikte hatıra kalması için veritabanı dondurularak sıralama ve üye bilgi komutları kullanıma açık bırakılmıştır,
+  - Zaman içerisinde moderasyon ve bilgilendirici mesajlara olan ihtiyaçların azalmasıyla botun kullanımı durdurularak bir süre rafa kaldırılmıştır.
+
 -----
 
 ### V.4 - GIBIRNet Moderasyon Botu - Geliştiriliyor...
 
-  ```
-  + Moderasyon ve güvenlik sistemleri ön çalışmaları,
-  + GIBIRNet abonelerinin doğrulama işlemlerini kolaylaştıracak abone teyit sistemi ön çalışması,
-  + Hatıra amaçlı durdurulmuş sıralama ve üye bilgi veritabanı.
-  ```
+  - Yetkililerin işlerini kolaylaştırmak ve Discord sunucusunun güvenliğini yükseltmek üzere komutlar ile her şeyi otomatize etmeyi hedefleyerek proje tekrar hayata geçirilmiştir,
+  - İlk olarak GIBIRNet abonelerinin, aboneliğini teyit etme işlemini kolaylaştırmak için abone-teyit komutu yapılmış ve böylece abonelerin yetkililere ihtiyaç duymadan abone rolüne erişmesi sağlanmıştır,
+  - Abone teyit sistemi henüz geliştirilme aşamasında olup diğer güvenlik ve moderasyon sistemleri üzerinde de çalışılmaya devam ediliyor.
 
 -----
 
-### İlgili Linkler
+### Linkler
 
   - [GIBIRNet Resmî Web Sitesi](https://gibir.net.tr/)  
   - [GIBIRNet Resmî Discord Topluluğu](https://gibir.net.tr/discord/)  
