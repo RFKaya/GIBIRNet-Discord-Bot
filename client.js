@@ -1,8 +1,32 @@
+const { Client, GatewayIntentBits } = require('discord.js');
+const client = new Client({
+  intents: [
+    GatewayIntentBits.Guilds,
+    GatewayIntentBits.GuildMembers,
+    GatewayIntentBits.GuildBans,
+    GatewayIntentBits.GuildEmojisAndStickers,
+    GatewayIntentBits.GuildIntegrations,
+    GatewayIntentBits.GuildWebhooks,
+    GatewayIntentBits.GuildInvites,
+    GatewayIntentBits.GuildVoiceStates,
+    GatewayIntentBits.GuildPresences,
+    GatewayIntentBits.GuildMessages,
+    GatewayIntentBits.GuildMessageReactions,
+    GatewayIntentBits.GuildMessageTyping,
+    GatewayIntentBits.DirectMessages,
+    GatewayIntentBits.DirectMessageReactions,
+    GatewayIntentBits.DirectMessageTyping,
+    GatewayIntentBits.MessageContent,
+    GatewayIntentBits.GuildScheduledEvents
+  ]
+});
+
 const Discord = require('discord.js');
-const client = new Discord.Client();
 const fs = require('fs');
 const moment = require('moment');
 require('./util/eventLoader')(client);
+const request = require('node-superfetch');
+const superagent = require('superagent');
 
 var aylar = {
   "01": "Ocak",
@@ -18,7 +42,7 @@ var aylar = {
   "11": "Kasım",
   "12": "Aralık"
 }
-   
+
 let zaman = (Date.now() + 10800000)
 let tarih = `${moment(zaman).format('DD')} ${aylar[moment(zaman).format('MM')]} ${moment(zaman).format('YYYY')} ${moment(zaman).format('• HH:mm:ss')}`
 
@@ -31,16 +55,16 @@ client.aliases = new Discord.Collection();
 fs.readdir('./commands/', (err, files) => {
   if (err) console.error(err);
   kurulum(`[${tarih}] Bot başlatılıyor... ${files.length} komut kuruluyor...`);
-   //kurulum(`-------------------------`);
-   files.forEach(f => {
+  //kurulum(`-------------------------`);
+  files.forEach(f => {
     let Kodları = require(`./commands/${f}`);
-  
+
     //kurulum(`[${tarih}] Kurulan Komut: ${Kodları.help.name}`);
-    client.commands.set(Kodları.help.name, Kodları); 
+    client.commands.set(Kodları.help.name, Kodları);
     //kurulum(`-------------------------`);
     client.commands.set(Kodları.help.name, Kodları);
     Kodları.conf.aliases.forEach(alias => {
-    client.aliases.set(alias, Kodları.help.name);
+      client.aliases.set(alias, Kodları.help.name);
     });
   });
 });
@@ -59,7 +83,7 @@ client.reload = command => {
         client.aliases.set(alias, Dosya.help.name);
       });
       resolve();
-    } catch (e){
+    } catch (e) {
       reject(e);
     }
   });
@@ -74,12 +98,12 @@ client.load = command => {
         client.aliases.set(alias, cmd.help.name);
       });
       resolve();
-    } catch (e){
+    } catch (e) {
       reject(e);
     }
   });
 };
- 
+
 client.unload = command => {
   return new Promise((resolve, reject) => {
     try {
@@ -90,26 +114,27 @@ client.unload = command => {
         if (cmd === command) client.aliases.delete(alias);
       });
       resolve();
-    } catch (e){
+    } catch (e) {
       reject(e);
     }
   });
 };
 
-client.elevation = message => {
-if (!message.guild) return;
+/*client.elevation = message => {
+  if (!message.guild) return;
   let permlvl = 0;
   if (message.member.hasPermission("MANAGE_MESSAGES")) permlvl = 1;
   if (message.member.hasPermission("BAN_MEMBERS")) permlvl = 2;
   if (message.member.hasPermission("ADMINISTRATOR")) permlvl = 3;
   if (message.author.id === "700385307077509180") permlvl = 4;
   return permlvl;
-};
+};*/
 
 var hataKontrol = /[\w\d]{24}\.[\w\d]{6}\.[\w\d-_]{27}/g;
 
 client.on("error", e => {
-  console.log("Hata oluştu!");
+  console.log(e);
+  //console.log("Hata oluştu!");
 });
 
 client.on("disconnect", e => {
@@ -118,5 +143,4 @@ client.on("disconnect", e => {
 
 //----------------------Kurulum Btiş-----------------------------//
 
-client.login("TOKEN");
-require('discord-buttons')(client)
+client.login("clientToken");

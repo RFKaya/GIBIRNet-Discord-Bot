@@ -1,37 +1,58 @@
-const Discord = require('discord.js');
-const ayarlar = require('../ayarlar.json');
+const Discord = require("discord.js");
+const db = require('quick.db');
+const moment = require("moment");
 
-exports.run = (client, message, params) => {
-    if (message.channel.type !== "group") {
-        var Durum = message.author.presence.status;
-        var Durm = (Durum == "online" ? (0x00AE86) : (Durum == "offline" ? (0x808080) : (Durum == "idle" ? (0xFFFF00) : (Durum == "dnd" ? (0xFF0000) : (0x00AE86)))))
-        var durm = (Durum == "online" ? ("Çevrimiçi") : (Durum == "offline" ? ("Çevrimdışı") : (Durum == "idle" ? ("Boşta") : (Durum == "dnd" ? ("Rahatsız Etmeyin") : ("Bilinmiyor/bulunamadı.")))))
-      const kullanicibilgimk = new Discord.RichEmbed()
-      .setAuthor(message.author.username, message.author.avatarURL)
-      .setColor(Durm)
-      .setTimestamp()
-      .addField('Ad:', message.author.username + '#' + message.author.discriminator)
-      .addField('ID:', message.author.id)
-      .addField('Kayıt tarihi:', message.author.createdAt)
-      .addField('Durum:', durm)
-      .addField('Şu an oynadığı oyun:', message.author.presence.game ? message.author.presence.game.name : 'Şu an oyun oynamıyor')
-      .addField('BOT mu?', message.author.bot ? '\n Evet' : 'Hayır')
-      message.react('☑')
-      console.log("kullanıcıbilgim komutu " + message.author.username + " tarafından kullanıldı.")
-      return message.channel.sendEmbed(kullanicibilgimk);
+exports.run = (client, message, args) => {
+
+  var user = message.mentions.users.first() || message.author;
+
+  let userData = db.fetch(`aboneler.${user.id}`)
+
+  if (!userData) return message.reply({content: "? LAN BU ELEMANIN VERİSİ YOK NEYİNİ ÇIKARMAMI İSTİYON?"})
+
+  var aylar = {
+    "01": "Ocak",
+    "02": "Şubat",
+    "03": "Mart",
+    "04": "Nisan",
+    "05": "Mayıs",
+    "06": "Haziran",
+    "07": "Temmuz",
+    "08": "Ağustos",
+    "09": "Eylül",
+    "10": "Ekim",
+    "11": "Kasım",
+    "12": "Aralık"
   }
+  let zaman = (userData.date)
+  let tarih = `${moment(zaman).format('DD')} ${aylar[moment(zaman).format('MM')]} ${moment(zaman).format('YYYY')} ${moment(zaman).format('• HH:mm')}`
+
+  message.channel.send({
+    embeds: [
+      new Discord.EmbedBuilder()
+        .setColor(0xF29200)
+        .setAuthor({
+          name: `${user.tag}`,
+          iconURL: user.avatarURL(),
+        })
+        .addFields(
+          { name: 'Abone Rolünü Alma Tarihi', value: `${tarih}` },
+          { name: 'Aynı Test Numarasına Sahip Üyeler', value: 'annen' },
+        )
+    ]
+  });
+
 };
 
 exports.conf = {
   enabled: true,
   guildOnly: false,
-  aliases: ['profil', 'profil bilgi', 'profilb'],
-  permLevel: 0
+  aliases: ["p"],
+  permLevel: 0,
 };
 
 exports.help = {
-  name: 'profil',
-  description: 'Komutu kullanan kişi hakkında bilgi verir.',
-  usage: 'profil'
+  name: "profil",
+  description: "zort.",
+  usage: "profil",
 };
-//merhaba hocam.

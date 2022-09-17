@@ -1,7 +1,7 @@
 const Discord = require('discord.js');
 const db = require("quick.db");
 module.exports = member => {
-
+/*
     let öncedenKatılmaDurumu = db.fetch(`ilkKatılmaTarihi_${member.user.id}`);
     let kayıtBilgi = db.fetch(`Uye_${member.user.id}`);
 
@@ -15,5 +15,5 @@ module.exports = member => {
             }
         }
     }
-
+*/
 };
